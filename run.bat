@@ -1,0 +1,13 @@
+@echo off
+echo Attempting to activate or create 'gaze_env' conda environment...
+call conda activate gaze_env
+if errorlevel 1 (
+    echo Creating new conda environment 'gaze_env'...
+    call conda create -n gaze_env python=3.10 -y
+    call conda activate gaze_env
+)
+echo Installing requirements...
+pip install opencv-python mediapipe numpy scikit-learn screeninfo typing-extensions PyQt5
+echo Starting Gaze Tracker...
+python main.py
+pause
