@@ -62,9 +62,9 @@ class LandmarkExtractor:
         if not results or not results.face_landmarks:
             return None
         
-        # Scale normalized landmarks back to image dimensions
+        # Scale normalized landmarks back to image dimensions (including depth mapped to width scale)
         mesh_points = np.array(
-            [[p.x * img_w, p.y * img_h] for p in results.face_landmarks[0]]
+            [[p.x * img_w, p.y * img_h, p.z * img_w] for p in results.face_landmarks[0]]
         )
         return mesh_points
 

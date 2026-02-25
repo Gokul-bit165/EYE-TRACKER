@@ -7,7 +7,7 @@ if errorlevel 1 (
     call conda activate gaze_env
 )
 echo Installing requirements...
-pip install opencv-python mediapipe numpy scikit-learn screeninfo typing-extensions PyQt5
+pip install opencv-python mediapipe numpy scikit-learn screeninfo typing-extensions PyQt5 pyautogui pyautogui pyautogui
 echo Starting Gaze Tracker...
 python main.py
 pause

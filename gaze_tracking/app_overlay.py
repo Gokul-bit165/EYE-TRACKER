@@ -5,9 +5,9 @@ from PyQt5.QtGui import QPainter, QColor, QPen
 import collections
 
 class GazeOverlay(QWidget):
-    # Signals to communicate back to the main session
     recalibrate_signal = pyqtSignal()
     quit_signal = pyqtSignal()
+    mouse_toggle_signal = pyqtSignal()
 
     def __init__(self, screen_w, screen_h, trail_length=30):
         super().__init__()
@@ -75,6 +75,8 @@ class GazeOverlay(QWidget):
             self.recalibrate_signal.emit()
         elif event.key() == Qt.Key_Q or event.key() == Qt.Key_Escape:
             self.quit_signal.emit()
+        elif event.key() == Qt.Key_F7:
+            self.mouse_toggle_signal.emit()
 
 def create_overlay(screen_w, screen_h):
     app = QApplication(sys.argv)

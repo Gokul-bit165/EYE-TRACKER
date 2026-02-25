@@ -5,3 +5,6 @@ scikit-learn
 screeninfo
 typing-extensions
 PyQt5
+pyautogui
+pyautogui
+pyautogui
